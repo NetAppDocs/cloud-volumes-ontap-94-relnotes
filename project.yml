@@ -56,7 +56,7 @@ sidebar:
     - title: Known limitations
       url: /reference-limitations.html
     - title: Legal notices
-      url: /reference-legal-notices.html
+      url: /legal-notices.html
 product-family:
   name: Cloud Manager
   repo: cloud-manager-family
@@ -66,32 +66,14 @@ homepage:
       links:
         - title: What's new
           url: reference-new.html
-        - title: Licensing overview
-          url: concept-licensing.html
-    - title: Amazon Web Services
+    - title: Configurations and limits
       links:
         - title: Supported configurations
-          url: reference-configs-aws.html
+          url: reference-supported-configs.html
         - title: Storage limits
-          url: reference-limits-aws.html
+          url: reference-storage-limits.html
         - title: Limitations
-          url: reference-limitations-gcp.html
-    - title: Google Cloud
-      links:
-        - title: Supported configurations
-          url: reference-configs-gcp.html
-        - title: Storage limits
-          url: reference-limits-gcp.html
-        - title: Limitations
-          url: reference-limitations-gcp.html
-    - title: Microsoft Azure
-      links:
-        - title: Supported configurations
-          url: reference-configs-azure.html
-        - title: Storage limits
-          url: reference-limits-azure.html
-        - title: Limitations
-          url: reference-limitations-azure.html
+          url: reference-limitations.html
     - title: Blogs & community
       links:
         - title: NetApp Community
