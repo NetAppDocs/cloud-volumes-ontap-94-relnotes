@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: reference-new-94.html
+permalink: reference-new.html
 keywords: what's new, new, features, release notes, enhancements
 summary: New releases of Cloud Volumes ONTAP introduce new features, enhancements, and bug fixes.
 ---

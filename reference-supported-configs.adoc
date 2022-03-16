@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: reference-supported-configs-94.html
+permalink: reference-supported-configs.html
 keywords: ec2, instance, type, vm, explore, standard, premium, byol, capacity, maximum, virtual machine, Cloud Volumes ONTAP, supported, configurations
 summary: Cloud Volumes ONTAP is available in several configurations in AWS and Azure.
 ---
 
-= Supported configurations for Cloud Volumes ONTAP 9.4
+= Supported configurations
 :hardbreaks:
 :nofooter:
 :icons: font
