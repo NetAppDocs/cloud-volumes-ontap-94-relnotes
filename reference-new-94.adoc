@@ -1,0 +1,93 @@
+---
+sidebar: sidebar
+permalink: reference-new-94.html
+keywords: what's new, new, features, release notes, enhancements
+summary: New releases of Cloud Volumes ONTAP introduce new features, enhancements, and bug fixes.
+---
+
+= What's new in Cloud Volumes ONTAP 9.4
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Cloud Volumes ONTAP 9.4 includes several new features and enhancements.
+
+NOTE: Additional features and enhancements are also introduced in the latest versions of Cloud Manager. See the https://docs.netapp.com/us-en/occm/reference_new_occm.html[Cloud Manager Release Notes] for details.
+
+== Support for pay-as-you-go in the AWS GovCloud (US) region
+
+The pay-as-you-go version of Cloud Volumes ONTAP is now supported in the AWS GovCloud (US) region. This is in addition to supporting Cloud Volumes ONTAP BYOL in the GovCloud (US) region.
+
+You can deploy Cloud Volumes ONTAP in the GovCloud (US) region just like any other region. Go to NetApp Cloud Central and launch Cloud Manager in GovCloud (US). Then launch Cloud Volumes ONTAP PAYGO or BYOL by creating a new working environment in Cloud Manager.
+
+== Tiering cold data with Cloud Volumes ONTAP Premium and BYOL
+
+The 9.2 release introduced automated data tiering between a performance tier (SSD or HDD) and a capacity tier (an object store). The cold data sent to the capacity tier included Snapshot copies of read-write volumes (the _Snapshot only_ tiering policy) or data from destination volumes (the _backup_ tiering policy).
+
+With Cloud Volumes ONTAP 9.4 Premium and BYOL, you now have a third option: you can use the _auto_ tiering policy to tier cold data blocks in a read-write volume to a capacity tier. The cold data includes not just Snapshot copies but also cold user data from the active file system.
+
+If read by random reads, the cold data blocks in the capacity tier become hot and move to the performance tier. If read by sequential reads, such as those associated with index and antivirus scans, the cold data blocks stay cold and do not move to the performance tier.
+
+You can choose the tiering policy when you create or edit a volume in Cloud Manager. For details, refer to https://docs.netapp.com/us-en/occm/task_tiering.html[Cloud Manager documentation].
+
+== Data tiering in Microsoft Azure
+
+You can now reduce your Azure storage costs by combining a performance tier for hot data (Premium or Standard managed disks) with a capacity tier for cold data (Azure Blob storage). The same tiering policies that are supported in AWS are also supported in Azure: auto, Snapshot only, and backup.
+
+NOTE: Data tiering is not supported with the DS3_v2 virtual machine type.
+
+You can choose the tiering policy when you create or edit a volume in Cloud Manager. For details, refer to https://docs.netapp.com/us-en/occm/task_tiering.html[Cloud Manager documentation].
+
+== Data tiering with Provisioned IOPS SSDs
+
+Data tiering is now supported in AWS with Provisioned IOPS SSDs. You can use these SSDs as the performance tier for hot data with Amazon S3 as the capacity tier for cold data.
+
+== Improved performance when tiering data
+
+The enhanced write performance that was introduced in the 9.2 and 9.3 releases is now supported with volumes that tier cold data to an object store capacity tier. This applies to volumes created on new SSD aggregates in Cloud Volumes ONTAP 9.4.
+
+== Improved performance for multiple workloads in AWS
+
+Cloud Volumes ONTAP now has additional networking bandwidth in AWS, which provides improved performance for systems with multiple workloads. The additional bandwidth is available for the following EC2 instance types when you upgrade to 9.4 and when you launch new 9.4 systems:
+
+* m4.xlarge
+* m4.2xlarge
+* m4.4xlarge
+* c4.4xlarge
+* c4.8xlarge
+
+== EC2 instance types no longer supported
+
+All versions of Cloud Volumes ONTAP no longer support several EC2 instance types. Existing systems running these instance types will continue to operate normally; however, NetApp strongly recommends changing to a different instance type.
+
+To review pricing differences between instance types and NetApp licenses, go to the AWS Marketplace for http://aws.amazon.com/marketplace/pp/B011KEZ734[single-node systems^] and for http://aws.amazon.com/marketplace/pp/B01H4LVJ84[HA pairs^].
+
+[cols=2*,options="header",width=60%]
+|===
+| Instance type no longer supported
+| Recommended instance type
+
+| c3.2xlarge | m4.xlarge
+| c4.2xlarge | m4.2xlarge
+| m3.xlarge | m4.xlarge
+| m3.2xlarge | m4.2xlarge
+| r3.xlarge | m4.2xlarge
+| r3.2xlarge | r4.2xlarge
+|===
+
+TIP: M3 and R3 instance types are not supported with data tiering and enhanced performance, so moving to the M4 and R4 instance types allows you to take advantage of those Cloud Volumes ONTAP features.
+
+== Upgrade notes
+
+* Upgrades of Cloud Volumes ONTAP must be completed from Cloud Manager. You should not upgrade Cloud Volumes ONTAP by using System Manager or the CLI. Doing so can impact system stability.
+
+* You can upgrade to Cloud Volumes ONTAP 9.4 from the 9.3 release.
++
+To understand version requirements, refer to http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-dot-upgrade/GUID-AC0EB781-583F-4C90-A4C4-BC7B14CEFD39.html[ONTAP 9 Documentation: Cluster update requirements^].
+
+* The upgrade of a single node system takes the system offline for up to 25 minutes, during which I/O is interrupted.
+
+* Upgrading an HA pair is nondisruptive and I/O is uninterrupted. During this nondisruptive upgrade process, each node is upgraded in tandem to continue serving I/O to clients.
