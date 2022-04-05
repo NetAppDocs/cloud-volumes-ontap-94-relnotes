@@ -15,7 +15,7 @@ summary: New releases of Cloud Volumes ONTAP introduce new features, enhancement
 [.lead]
 Cloud Volumes ONTAP 9.4 includes several new features and enhancements.
 
-NOTE: Additional features and enhancements are also introduced in the latest versions of Cloud Manager. See the https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html[Cloud Manager Release Notes] for details.
+NOTE: Additional features and enhancements are also introduced in the latest versions of Cloud Manager. See the https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html[Cloud Manager Release Notes^] for details.
 
 == Support for pay-as-you-go in the AWS GovCloud (US) region
 
