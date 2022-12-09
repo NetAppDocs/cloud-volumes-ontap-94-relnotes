@@ -94,11 +94,3 @@ Detaching an EBS volume from a Cloud Volumes ONTAP instance and then reattaching
 * Cloud Volumes ONTAP sends encryption keys to key managers even for aggregates that it failed to create.
 +
 You must manually delete the keys from key managers.
-
-== Known limitations in Microsoft Azure
-
-The following known limitations affect Cloud Volumes ONTAP in Azure.
-
-=== Pay-as-you-go not available for CSP partners
-
-If you are a Microsoft Cloud Solution Provider (CSP) partner, you cannot deploy Cloud Volumes ONTAP Explore, Standard, or Premium because pay-as-you-go subscriptions are not available for CSP partners. You must purchase a license and deploy Cloud Volumes ONTAP BYOL.
